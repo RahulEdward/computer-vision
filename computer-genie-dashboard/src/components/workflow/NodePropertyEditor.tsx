@@ -223,12 +223,13 @@ const NodePropertyEditor: React.FC<NodePropertyEditorProps> = ({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 300 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 300 }}
-      className="fixed right-0 top-0 h-full w-96 bg-white shadow-xl border-l border-gray-200 z-50 flex flex-col"
-    >
+    <>
+      <motion.div
+        initial={{ opacity: 0, x: 300 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 300 }}
+        className="fixed right-0 top-0 h-full w-96 bg-white shadow-xl border-l border-gray-200 z-50 flex flex-col"
+      >
       {/* Header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-900">Node Properties</h3>
@@ -283,21 +284,22 @@ const NodePropertyEditor: React.FC<NodePropertyEditorProps> = ({
           </button>
         </div>
       </div>
-    </motion.div>
+      </motion.div>
 
-    <CredentialEditor
-      isOpen={showCredentialEditor}
-      onClose={() => setShowCredentialEditor(false)}
-      credentialType={credentialType}
-      onSave={(credential) => {
-        setShowCredentialEditor(false);
-        // Optionally auto-select the newly created credential
-        const credentialProperty = properties.find(p => p.type === 'credentialsSelect');
-        if (credentialProperty) {
-          handleValueChange(credentialProperty.name, credential.id);
-        }
-      }}
-    />
+      <CredentialEditor
+        isOpen={showCredentialEditor}
+        onClose={() => setShowCredentialEditor(false)}
+        credentialType={credentialType}
+        onSave={(credential) => {
+          setShowCredentialEditor(false);
+          // Optionally auto-select the newly created credential
+          const credentialProperty = properties.find(p => p.type === 'credentialsSelect');
+          if (credentialProperty) {
+            handleValueChange(credentialProperty.name, credential.id);
+          }
+        }}
+      />
+    </>
   );
 };
 

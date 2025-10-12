@@ -1,0 +1,65 @@
+{
+  "name": "Computer Genie Dashboard",
+  "short_name": "Genie",
+  "description": "Next-generation automation dashboard with AI-powered insights",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["productivity", "business", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create Workflow",
+      "short_name": "New Workflow",
+      "description": "Create a new automation workflow",
+      "url": "/?action=create-workflow",
+      "icons": [
+        {
+          "src": "/shortcut-workflow.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Collaboration",
+      "short_name": "Collaborate",
+      "description": "Start a collaboration session",
+      "url": "/?action=collaborate",
+      "icons": [
+        {
+          "src": "/shortcut-collaborate.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

@@ -223,7 +223,7 @@ const CollaborationPanel = () => {
               <div className="flex items-center justify-center h-full">
                 <div className="text-center">
                   <VideoCameraIcon className="h-16 w-16 text-gray-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Click "Start Call" to begin video conference</p>
+                  <p className="text-gray-400">Click &quot;Start Call&quot; to begin video conference</p>
                 </div>
               </div>
             )}

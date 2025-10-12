@@ -43,7 +43,7 @@ interface MetricCard {
 
 const Dashboard = () => {
   const {
-    metrics: currentMetrics,
+    currentMetrics,
     connectionStatus,
     error,
     averageMetrics,
@@ -84,28 +84,28 @@ const Dashboard = () => {
       title: 'CPU Usage', 
       value: `${Math.round(currentMetrics.cpu)}%`, 
       change: trends?.cpu ? `${trends.cpu > 0 ? '+' : ''}${trends.cpu.toFixed(1)}%` : '0%',
-      trend: trends?.cpu > 0 ? 'up' : trends?.cpu < 0 ? 'down' : 'stable',
+      trend: (trends?.cpu ?? 0) > 0 ? 'up' : (trends?.cpu ?? 0) < 0 ? 'down' : 'stable',
       icon: CpuChipIcon 
     },
     { 
       title: 'Memory Usage', 
       value: `${Math.round(currentMetrics.memory)}%`, 
       change: trends?.memory ? `${trends.memory > 0 ? '+' : ''}${trends.memory.toFixed(1)}%` : '0%',
-      trend: trends?.memory > 0 ? 'up' : trends?.memory < 0 ? 'down' : 'stable',
+      trend: (trends?.memory ?? 0) > 0 ? 'up' : (trends?.memory ?? 0) < 0 ? 'down' : 'stable',
       icon: ServerIcon 
     },
     { 
       title: 'Disk Usage', 
       value: `${Math.round(currentMetrics.disk)}%`, 
       change: trends?.disk ? `${trends.disk > 0 ? '+' : ''}${trends.disk.toFixed(1)}%` : '0%',
-      trend: trends?.disk > 0 ? 'up' : trends?.disk < 0 ? 'down' : 'stable',
+      trend: (trends?.disk ?? 0) > 0 ? 'up' : (trends?.disk ?? 0) < 0 ? 'down' : 'stable',
       icon: ChartBarIcon 
     },
     { 
       title: 'Network', 
-      value: `${(currentMetrics.network / 1000).toFixed(1)}MB/s`, 
-      change: trends?.network ? `${trends.network > 0 ? '+' : ''}${(trends.network / 1000).toFixed(1)}MB/s` : '0MB/s',
-      trend: trends?.network > 0 ? 'up' : trends?.network < 0 ? 'down' : 'stable',
+      value: `${((currentMetrics.network.download + currentMetrics.network.upload) / 1000).toFixed(1)}MB/s`, 
+      change: '0MB/s',
+      trend: 'stable',
       icon: WifiIcon 
     },
   ] : [
@@ -118,7 +118,7 @@ const Dashboard = () => {
   // Update activities based on metrics
   useEffect(() => {
     if (currentMetrics) {
-      const newActivities = [];
+      const newActivities: Array<{ id: number; action: string; time: string; status: string }> = [];
       
       if (currentMetrics.cpu > 80) {
         newActivities.push({
@@ -138,10 +138,11 @@ const Dashboard = () => {
         });
       }
       
-      if (currentMetrics.network > 50000) { // 50MB/s
+      const totalNetwork = currentMetrics.network.upload + currentMetrics.network.download;
+      if (totalNetwork > 50000) { // 50MB/s
         newActivities.push({
           id: Date.now() + 3,
-          action: `Network activity spike: ${(currentMetrics.network / 1000).toFixed(1)} MB/s`,
+          action: `Network activity spike: ${(totalNetwork / 1000).toFixed(1)} MB/s`,
           time: 'Just now',
           status: 'info'
         });
@@ -244,7 +245,7 @@ const Dashboard = () => {
               alerts={alerts}
               onClearAlerts={clearAlerts}
               onUpdateThresholds={updateThresholds}
-              onGetThresholds={getThresholds}
+              currentThresholds={getThresholds()}
             />
 
             {/* System Overview */}
@@ -320,7 +321,7 @@ const Dashboard = () => {
                   <div>
                     <p className="text-slate-400 text-sm font-medium">Network</p>
                     <p className="text-2xl font-bold text-slate-100 mt-1">
-                      {currentMetrics?.network.latency || '0'}ms
+                      {currentMetrics ? Math.round((currentMetrics.network.upload + currentMetrics.network.download) / 1024) : '0'}KB/s
                     </p>
                   </div>
                   <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl flex items-center justify-center">

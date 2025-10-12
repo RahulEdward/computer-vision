@@ -367,7 +367,7 @@ const WorkflowBuilder = () => {
                         
                         return (
                           <motion.div
-                            key={nodeType.type}
+                            key={`${category}-${nodeType.type}`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => addNode(nodeType.type)}

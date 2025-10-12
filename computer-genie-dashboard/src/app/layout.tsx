@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { registerCoreServices } from '@/services';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,6 +53,8 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
 };
+
+registerCoreServices();
 
 export default function RootLayout({
   children,

@@ -36,7 +36,7 @@ import {
   Copy,
   Trash2,
   Flag,
-  VolumeX as Mute,
+  Mute,
   Volume2,
   Camera,
   Mic,

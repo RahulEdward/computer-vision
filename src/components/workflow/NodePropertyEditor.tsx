@@ -97,8 +97,8 @@ const NodePropertyEditor: React.FC<NodePropertyEditorProps> = ({
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="">Select an option...</option>
-            {property.options?.map((option: INodePropertyOptions, index: number) => (
-              <option key={`${option.name}-${index}`} value={String(option.value)}>
+            {property.options?.map((option: INodePropertyOptions) => (
+              <option key={option.value} value={option.value}>
                 {option.name}
               </option>
             ))}
@@ -108,8 +108,8 @@ const NodePropertyEditor: React.FC<NodePropertyEditorProps> = ({
       case 'multiOptions':
         return (
           <div className="space-y-2">
-            {property.options?.map((option: INodePropertyOptions, idx: number) => (
-              <label key={`${option.name}-${idx}`} className="flex items-center space-x-2 cursor-pointer">
+            {property.options?.map((option: INodePropertyOptions) => (
+              <label key={option.value} className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={(value || []).includes(option.value)}
@@ -150,17 +150,17 @@ const NodePropertyEditor: React.FC<NodePropertyEditorProps> = ({
         return (
           <div className="space-y-2">
             <div className="text-sm text-gray-600">Collection properties:</div>
-            {property.options?.map((option: INodePropertyOptions, i: number) => (
-              <div key={`collection-${i}`} className="pl-4 border-l-2 border-gray-200">
+            {property.options?.map((option: INodePropertyOptions) => (
+              <div key={option.value} className="pl-4 border-l-2 border-gray-200">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {option.name}
                 </label>
                 {/* Recursively render nested properties if they exist */}
                 <input
                   type="text"
-                  value={(value && value[String(option.value)]) || ''}
+                  value={(value && value[option.value]) || ''}
                   onChange={(e) => {
-                    const newValue = { ...value, [String(option.value)]: e.target.value };
+                    const newValue = { ...value, [option.value]: e.target.value };
                     handleValueChange(property.name, newValue);
                   }}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"

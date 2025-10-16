@@ -1,0 +1,316 @@
+/* ===== N8N.IO STYLE NODES - 110% REPLICA ===== */
+
+/* Remove ALL default ReactFlong */
+.{
+
+  background: transparent !nt;
+  padding: 0 !important;
+ ant;
+}
+
+.react-flow__node::before,
+.react-flow__node-default:,
+.react-flow__node-input::before,
+.react-flow__node-output::efore {
+  content: none !important;
+  display: none !importa
+}
+
+.react-flow__node-default,
+.react-flow__node-input,
+.react-flow__node-output {
+  background: transparent !importa
+  border: none !important;
+  box-shadow: none !important;
+ tant;
+
+  height: auto !important;
+}
+
+/== */
+ard {
+  background: white;
+  border: 2px solid #
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 240px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0;
+  transition: all 0.2s ease;
+ 
+}
+
+.n8n-node-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0,5);
+  transform: translateY(-2px);
+}
+
+.n8n-node-card.selected {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 9);
+}
+
+/* Node Header */
+.n8n-node-header {
+  display: flex;
+  align-items: center;
+ p: 12px;
+ 8px;
+}
+
+.n8n-node-icon {
+ 
+0px;
+  border-radius: 8px;
+  display: flex;
+ ter;
+r;
+  flex-shrink: 0;
+}
+
+.n8n-node-icon.trigger {
+  background: linea0%);
+}
+
+.on {
+t;
+}
+rtanone !impoit-filter: nebknt;
+  -wortaone !imp  filter: n-output {
+ow__node.react-fle-input,
+low__nod,
+.react-fe-defaultt-flow__nodode,
+.reaclow__n-f*/
+.reactS ===== HADOWERS/S= NO FILT* ====nt;
+}
+
+/importa6 !cfid #8b5px sol border: 1tant;
+ mpor46, 0.1) !i, 29, 9213round: rgba(
+  backgselection {eact-flow__
+.rX ===== */ELECTION BO==== S
+/* =nt;
+}
+ !importa151roke: #374rn {
+  std-patte_backgrounow_-flark .react;
+}
+
+.dortant!impe5e7eb 
+  stroke: #n {-patterackgroundeact-flow__b */
+.rs pattern Dotnt;
+}
+
+/*27 !importa#1118or: d-colackgrounound {
+  bgrackct-flow__b
+.dark .rea;
+}
+ntortaafb !imp #f9fd-color:un
+  backgrokground {__bac-flowreact/
+.E) ===== *YL8N STKGROUND (N==== BAC
+
+/* =ant;
+}51 !import3741der-color: #  bornt;
+porta#1f2937 !imground: {
+  backow__minimap  .react-flrk;
+}
+
+.daant0.1) !import0, 0, px rgba(0, 2px 80 shadow: t;
+  box-!importanx us: 8prder-radirtant;
+  bo!impo #e5e7eb ider: 1px solant;
+  bord !importte: whiround backgminimap {
+ flow__
+.react-
+ant;
+}4151 !importround: #37kg
+  bacr {-button:hoventrolst-flow__codark .reac
+}
+
+. !important;f6lor: #f3f4rtant;
+  co1 !impolor: #37415r-bottom-codeor;
+  brtant37 !impo: #1f29kground{
+  bacton -butw__controlslo .react-f
+.dark
+portant;
+} #f9fafb !imbackground:ver {
+  tton:hotrols-but-flow__conac.re}
+
+rtant;
+2s !impo0. all ition:
+  transimportant;id #e5e7eb !1px solder-bottom: 
+  borrtant;te !impoound: whi{
+  backgrls-button rocontct-flow__}
+
+.reaant;
+mport374151 !ir-color: #
+  bordeimportant; #1f2937 !ckground:  baols {
+contract-flow__k .re
+}
+
+.darnt;importa.1) !, 0, 0, 08px rgba(0ow: 0 2px 
+  box-shadrtant;!imporadius: 8px order-  bant;
+b !importe5e7elid #er: 1px so  bordt;
+tanwhite !impor: und{
+  backgro_controls flow_.react- ===== */
+N STYLE)MINIMAP (N8TROLS & == CON/* ===ant;
+}
+
+mport !i5563stroke: #4b  {
+-path low__edge .react-f
+}
+
+.darkimportant;0 !b728#6-color: erant;
+  bordort374151 !imp: #kgroundac{
+  ble ndact-flow__hadark .re
+
+.a3af;
+}color: #9ctus {
+  -stak .n8n-node
+
+.darf4f6;
+}f3 color: #{
+ e-title odrk .n8n-n
+}
+
+.da);, 0.2 92, 246x rgba(139, 3pw: 0 0 0  box-shado;
+b5cf6lor: #8
+  border-cocted {rd.sele-caden-no.n8rk );
+}
+
+.da 0.40,rgba(0, 0,  4px 12px shadow: 0;
+  box-55634b-color: # border{
+ -card:hover k .n8n-node
+
+.dar;
+}0, 0, 0.3)rgba(0, px  3 1px 0shadow:x-4151;
+  bor: #37der-coloor1f2937;
+  b: #background-card {
+  -noderk .n8nda==== */
+.RK THEME ==== DA}
+
+/* ==nt;
+rta 12px !impofont-size:
+  ortant;imp6b7280 !fill: #  ext {
+low__edge-t
+.react-f
+tant;
+}e !imporwhit  fill: 
+extbg {-tdge_elow_react-f
+.tton */
+/* Edge Bu
+  }
+}
+et: -10;shoffske-da
+    stroto {draw {
+  es dashramyf
+@ke
+infinite;
+}ear aw 0.5s lin: dashdr
+  animationay: 5;e-dasharrrok  sth {
+dge-pat-flow__e .reactmatede.aniflow__edg
+.react-
+rtant;
+}poimh: 3 !-widtkerortant;
+  stcf6 !impoe: #8b5rok  stpath {
+ow__edge-react-fled .dge.selectow__eflct-
+}
+
+.reant;: 3 !importath-widketrot;
+  s !importan#8b5cf6roke: {
+  stdge-path _eow_ct-flr .readge:hove_et-flow_
+.reacnt;
+}
+ta !impor0.2s easel tion: alsi;
+  tranportantth: 2 !imstroke-widtant;
+  5db !imporroke: #d1dath {
+  stw__edge-pt-flo== */
+.reac STYLE) === EDGES (N8N
+/* =====rtant;
+}
+81 !impo #10b9r-color:  bordent;
+ !importa10b981ground: #  backvalid {
+low__handle-t-f
+}
+
+.reacant;6 !import: #8b5cforder-color
+  bt;6 !importan5cfkground: #8bt;
+  bac 1 !importan  opacity:
+ting {necndle-conct-flow__ha
+}
+
+.reaortant;) !imp 246, 0.2a(139, 92,gb 0 4px row: 0 0x-shadboportant;
+  !imnd: #8b5cf6 grouant;
+  backrtimpor: #8b5cf6 !order-colo;
+  bx !importantght: 18peint;
+  hx !importawidth: 18p{
+  andle:hover act-flow__hre
+
+.
+}!important;y: 1 {
+  opacitw__handle flor .react-_node:hoveow_
+.react-fl}
+nt;
+ 0 !importaity:pactant;
+  oease !impor 0.2s allansition: trant;
+   50% !importer-radius:;
+  bordimportantaf ! solid #9ca3 border: 2pxportant;
+ e !im: whitckground  batant;
+!imporx height: 14pportant;
+  px !imidth: 14andle {
+  ww__hact-flo/
+.re= *LE) ====LES (N8N STYANDION H=== CONNECT
+/* ==
+}
+city: 0.5; } { opa
+  50%: 1; }city0% { opa{
+  0%, 10s pulse 
+
+@keyframe81;
+}round: #10b9 backg {
+ uccessdot.s-status-
+}
+
+.n8n44;: #ef44  backgrounderror {
+tus-dot.n-stan8
+.
+};
+2s infiniteion: pulse imat an #3b82f6;
+ round: backg
+ running {-status-dot.8n
+.n10b981;
+}
+ #ound:kgr
+  bac.ready {n-status-dot0;
+}
+
+.n8ink: 
+  flex-shr: 50%;er-radius  bord;
+ght: 8px
+  heiwidth: 8px;
+  tatus-dot {.n8n-s;
+}
+
+6b7280: #olor;
+  c 12px  font-size: gap: 6px;
+center;
+ tems: -i  alignlex;
+play: fdis
+  tus {e-staodn8n-n
+. */ode Status
+/* N
+}
+t: 1.2;  line-heigh
+or: #111827;00;
+  colt: 6igh
+  font-we: 14px;nt-size 1;
+  foflex: {
+  n-node-title
+
+.n8;
+} 100%) #d97706f59e0b 0%,t(135deg, #ar-gradienund: lineckgro
+  bantegration {con.ie-i.n8n-nod0%);
+}
+
+#7c3aed 106 0%, 8b5cfnt(135deg, #diera linear-gkground: {
+  bacormransfn.tnode-ico}
+
+.n8n-100%);
+#2563eb #3b82f6 0%, 135deg, radient(: linear-gkground  bac

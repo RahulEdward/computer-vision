@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { registerCoreServices } from '@/services';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { SessionProvider } from '@/components/SessionProvider';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -63,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
@@ -74,12 +74,11 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100`}
-        suppressHydrationWarning
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <ThemeProvider>
+        <SessionProvider>
           {children}
-        </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

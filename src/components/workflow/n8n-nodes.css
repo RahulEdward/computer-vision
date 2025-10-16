@@ -1,0 +1,80 @@
+/* N8N.IO STYLE - 110% REPLICA */
+
+/* Remove default ReactFlow styles */
+.react-flow__node {
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.react-flow__node::before { display: none !important; }
+
+.react-flow__node-default,
+.react-flow__node-input,
+.react-flow__node-output {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* N8N Node Card */
+.n8n-node {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 240px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.n8n-node:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.n8n-node.selected {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.1);
+}
+
+/* Connection Handles */
+.react-flow__handle {
+  width: 14px !important;
+  height: 14px !important;
+  background: white !important;
+  border: 2px solid #9ca3af !important;
+  opacity: 0 !important;
+}
+
+.react-flow__node:hover .react-flow__handle {
+  opacity: 1 !important;
+}
+
+.react-flow__handle:hover {
+  width: 18px !important;
+  height: 18px !important;
+  border-color: #8b5cf6 !important;
+  background: #8b5cf6 !important;
+}
+
+/* Edges */
+.react-flow__edge-path {
+  stroke: #d1d5db !important;
+  stroke-width: 2 !important;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #8b5cf6 !important;
+}
+
+/* Dark Theme */
+.dark .n8n-node {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.dark .react-flow__background {
+  background-color: #111827 !important;
+}

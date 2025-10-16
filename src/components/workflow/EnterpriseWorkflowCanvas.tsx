@@ -10,7 +10,6 @@ import ReactFlow, {
   Connection,
   ReactFlowProvider,
   Background,
-  BackgroundVariant,
   Controls,
   Panel,
   NodeTypes,
@@ -559,7 +558,7 @@ export const EnterpriseWorkflowCanvas: React.FC = () => {
       color="#1f2937" 
       gap={20} 
       size={1}
-      variant={BackgroundVariant.Dots} 
+      variant="dots" 
     />
   ), []);
 
@@ -572,16 +571,40 @@ export const EnterpriseWorkflowCanvas: React.FC = () => {
     />
   ), []);
 
-  // MiniMap temporarily disabled due to prop requirements
-  const memoizedMiniMap = null;
+  const memoizedMiniMap = useMemo(() => (
+    <MiniMap 
+      nodeColor="#3b82f6"
+      maskColor="rgba(0, 0, 0, 0.2)"
+      position="bottom-right"
+      style={{
+        backgroundColor: '#1f2937',
+        border: '1px solid #374151',
+      }}
+    />
+  ), []);
 
   return (
     <div className="h-screen w-full bg-gray-900 relative">
       <ReactFlowProvider>
         <div className="relative h-full w-full">
-          {/* Performance Optimizer temporarily disabled */}
+          {/* Performance Optimizer */}
+          <PerformanceOptimizer
+            nodes={nodes}
+            edges={edges}
+            viewport={viewport}
+            config={optimizationConfig}
+            onOptimizedNodesChange={handleOptimizedNodesChange}
+            onOptimizedEdgesChange={handleOptimizedEdgesChange}
+          />
 
-          {/* Drag Drop System temporarily disabled */}
+          {/* Drag Drop System */}
+          <DragDropSystem
+            nodes={nodes}
+            config={dragDropConfig}
+            onDragStart={handleDragStart}
+            onDragMove={handleDragMove}
+            onDragEnd={handleDragEnd}
+          />
 
           <ReactFlow
             ref={canvasRef}
@@ -594,6 +617,7 @@ export const EnterpriseWorkflowCanvas: React.FC = () => {
             onNodeClick={onNodeClick}
             onNodeContextMenu={onNodeContextMenu}
             onPaneContextMenu={onPaneContextMenu}
+            onViewportChange={handleViewportChange}
             nodeTypes={nodeTypes}
             edgeTypes={edgeTypes}
             defaultViewport={{ x: 0, y: 0, zoom: 1 }}
@@ -607,23 +631,69 @@ export const EnterpriseWorkflowCanvas: React.FC = () => {
             <Controls />
           </ReactFlow>
 
-          {/* MiniMap temporarily disabled */}
+          {/* MiniMap */}
+          <MiniMap
+            settings={miniMapSettings}
+            onSettingsChange={setMiniMapSettings}
+            viewport={viewport}
+            onViewportChange={handleViewportChange}
+          />
         </div>
 
-        {/* Toolbar temporarily disabled */}
+        {/* Toolbar */}
+        <WorkflowToolbar
+          onAddNode={addNode}
+          onDeleteNode={() => selectedNode && deleteNode(selectedNode.id)}
+          onDuplicateNode={() => selectedNode && duplicateNode(selectedNode.id)}
+          onCreateGroup={createGroup}
+          onTogglePerformance={() => setShowPerformanceMonitor(!showPerformanceMonitor)}
+          onToggleCollaboration={() => setShowCollaboration(!showCollaboration)}
+          selectedNodeCount={canvasState.selectedNodes.length}
+        />
 
-        {/* Performance Monitor temporarily disabled */}
+        {/* Performance Monitor */}
+        {showPerformanceMonitor && (
+          <PerformanceMonitor
+            ref={performanceRef}
+            metrics={performanceMetrics}
+            config={optimizationConfig}
+            onConfigChange={setOptimizationConfig}
+            onClose={() => setShowPerformanceMonitor(false)}
+          />
+        )}
 
         {/* Node Palette */}
         {showNodePalette && (
           <NodePalette onAddNode={addNode} />
         )}
 
-        {/* Properties Panel temporarily disabled */}
+        {/* Properties Panel */}
+        {showPropertiesPanel && selectedNode && (
+          <PropertiesPanel
+            node={selectedNode}
+            onClose={() => setShowPropertiesPanel(false)}
+            onUpdate={(updates) => {
+              setNodes((nds) =>
+                nds.map((node) =>
+                  node.id === selectedNode.id ? { ...node, ...updates } : node
+                )
+              );
+            }}
+          />
+        )}
 
-        {/* Collaboration Panel temporarily disabled */}
+        {/* Collaboration Panel */}
+        {showCollaboration && (
+          <CollaborationPanel onClose={() => setShowCollaboration(false)} />
+        )}
 
-        {/* Context Menu temporarily disabled */}
+        {/* Context Menu */}
+        {contextMenu && (
+          <ContextMenu
+            position={contextMenu}
+            onClose={closeContextMenu}
+          />
+        )}
 
         {/* Test Suite */}
         {showTestSuite && (
@@ -643,7 +713,14 @@ export const EnterpriseWorkflowCanvas: React.FC = () => {
           {showValidator ? '✓ Validation On' : '⚠ Validate Workflow'}
         </button>
 
-        {/* Workflow Validator temporarily disabled */}
+        {/* Workflow Validator */}
+        {showValidator && (
+          <WorkflowValidator
+            nodes={nodes}
+            edges={edges}
+            onClose={() => setShowValidator(false)}
+          />
+        )}
       </ReactFlowProvider>
     </div>
   );
